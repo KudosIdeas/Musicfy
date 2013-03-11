@@ -1,4 +1,13 @@
 $(document).ready(function(){
+	// Ricky
+	$("#ricky").click(function(){
+			$("#dialogo").fadeIn(1000);
+			$("#contenidoDialogo").fadeIn(1500);
+	});
+	$("#dialogo").click(function(){
+		$("#dialogo").fadeOut(1500);
+		$("#contenidoDialogo").fadeOut(1500);
+	});
 	
 	// Pan Background
 	$("#musicEqualizer").pan({fps:24, speed:5, direction:"right"});
