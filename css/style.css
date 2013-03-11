@@ -1,5 +1,32 @@
 @import url(http://fonts.googleapis.com/css?family=Berkshire+Swash);
 
+body {
+	background: black;
+	font-family: Verdana, Helvetica, Arial, "Lucida Grande";
+	font-size: 12px;   
+	margin: 0;
+	padding: 0;  
+}
+
+a img{
+	border: none;
+	outline:none;
+	margin-right: 10px;
+}
+
+input[type="text"] { 
+    color: rgb(225,225,225);
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px grey;
+    background-color: black;
+    margin: 15px 15px 0 0;
+    padding: 5px 13px 5px 13px;
+    width: 80%;
+} 
+input[type="text"]:focus {
+    outline: none;   
+}
+
 .progress-container {
 	position: relative;
 	height: 50px;
@@ -31,29 +58,6 @@
 	opacity: 0.4;
 	cursor: pointer;
 }
-     
-
-/* @maboa hacks */
-
-ul, ol {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;   
-}
-
-body {
-	background: black;
-	font-family: Verdana, Helvetica, Arial, "Lucida Grande";
-	font-size: 12px;   
-	margin: 0;
-	padding: 0;  
-}
-
-a img{
-	border: none;
-	outline:none;
-	margin-right: 10px;
-}
 
 #container {
 	margin:0 auto;
@@ -69,217 +73,100 @@ a img{
 	overflow: auto;
 } 
 
-
-#transcript-content span {
-	cursor: pointer;
-}    
-
-#transcript-content span:hover {  
-	color: #f07d00; 
-}   
-
-
-#transcript-content span.transcript-grey {
-    color: #ccc;
-}
-
-#images-square-left {
-	width: 310px;  
-	height: 310px;
-	float: left;
-}  
-
-#images-square-right {
-	width: 310px; 
-	height: 310px;
-	float: right;	
-} 
-
-#images-widescreen {
-	width: 630px; 
-	height: 310px;
-	float: left;	
-}  
-  
-#simple-controls {
-	position: absolute;
-	right: 0px;
-	margin-top:86px;
-	width:50px;
-	height: 153px;
-	text-indent:-9999px;
-	list-style-type:none;
-	float: right; 
-}
-
-#social-controls {
-	position: absolute;
-	left: 0px;
-	margin-top:86px;
-	width:50px;
-	height: 153px;
-	list-style-type:none;
-	float: left;   
-}
-
-#simple-controls a, #social-controls a{
-	display: block;	
-	width: 50px;
-	height: 50px;
-	border-bottom: 1px solid #fff;
-}
-
-#simple-controls a:hover, #social-controls a:hover{
-	cursor:pointer;
-}
-
-.jp-play{
-	background:url('../images/sprites.gif')	0 0 no-repeat;
-}    
-
-.jp-pause{
-	background:url('../images/sprites.gif')	0 -50px no-repeat;
-}  
-
-.jp-pause-flash{
-	background:url('../images/sprites.gif')	-50px -50px no-repeat;
-}    
-
-.jp-restart{
-	background:url('../images/sprites.gif')	0 -200px no-repeat;
-}    
-
-.show-trans{
-	background:url('../images/sprites.gif')	0 -100px no-repeat;
-}    
-
-.hide-trans{
-	background:url('../images/sprites.gif')	0 -150px no-repeat;
-}    
-
-.twitter {
-	background:url('../images/sprites.gif')	0 -250px no-repeat;
-}
-
-.facebook {
-	background:url('../images/sprites.gif')	0 -300px no-repeat;
-}
-
-.soundcloud {
-	background:url('../images/sprites.gif')	0 -350px no-repeat;
-}
-
-input[type="text"] { 
-    color: rgb(225,225,225);
-    border-radius: 10px;
-    box-shadow: 0px 0px 5px grey;
-    background-color: black;
-    margin: 15px 15px 0 0;
-    padding: 5px 13px 5px 13px;
-    width: 80%;
-} 
-input[type="text"]:focus {
-    outline: none;   
-}
-
-#loading {
-                background-color: rgb(225,225,225);
-                opacity: 0.5;
-                position: absolute;
-                top: 0px;
-                left: 0px;
-                width: 100%;
-                height: 100%;
-                padding: 0px;
-                margin: 0px;
-                font-family: 'Englebert', sans-serif;
-                font-size: 25px;
-                z-index:    50;
-    }
-    #loading p{
-                height: 100px;
-                position: relative;
-                top: 50%;
-                margin: 0px;
-                margin-top: -50px;
-                padding: 0px;
-                font-size: 100%;
-                font-weight: bold;
-                text-align: center;
-                width: 100%;
-                height: 100%;
-    }
-    
-    .music {
-                float: left;
-                background: lightgrey;
-                display: inline-block;
-                width: 150px;
-                height: 250px;
-                margin: 5px;
-                padding: 0px;
-    }
-    .music img {
-                cursor: pointer;
-                width: 100%;
-                height: 150px;
-                margin: 0px;
-                padding: 0px;
-    }
-    .music p {
-                cursor: pointer;
-                display: inline-block;
-                width: 100%;
-                height: 100px;
-                margin: 0px;
-                padding: 5px;
-    }
-    
-    #SoundCloudSearch{
-                    overflow: auto;
-                    height: 100%;
-    }
-    #musicEqualizer{
+#musicEqualizer{
         width: 100%;
         height: 150px;
-        background: url('images/musicEqualizer.png') repeat-x;
+        background: url('../images/musicEqualizer.png') repeat-x;
         background-size: 853px 150px;
         position: absolute;
         bottom: 0px;
         z-index: 2;
-    }
-    
-    #controls{
-        background: url('images/metal.jpg') repeat;
+}
+#controls{
+	height: 150px;
+        background: url('../images/metal.jpg') repeat;
         box-shadow: 0px 2px 2px 2px grey;
-    }
-    #ricky{
+}
+#ricky{
         cursor: help;
         display: inline-block;
-        background: url('images/ricky.png');
+        background: url('../images/ricky.png');
         width: 64px;
         height: 64px;
-    }
-    #soundcloud{
-        width: 100%;
-        margin: 0px;
-        padding: 0px;
-    }
-    #main{
+}
+#main{
         font-family: 'Berkshire Swash', cursive;
         margin: 0 auto;
         padding: 0px;
         height: 150px;
         width: 320px;
-    }
-    #logo{
+}
+#logo{
         height: 64px;
-    }
-    #musicfy{
+}
+#musicfy{
         width: 75%;
         margin-top: 4px;
         float: left;
         height: 60px;
         font-size: 45px;
         text-align: center;
-    }
+}
+    
+#loading {
+        background-color: rgb(225,225,225);
+        opacity: 0.5;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+        padding: 0px;
+        margin: 0px;
+        font-family: 'Englebert', sans-serif;
+        font-size: 25px;
+        z-index:    50;
+}
+#loading p{
+        height: 100px;
+        position: relative;
+        top: 50%;
+        margin: 0px;
+        margin-top: -50px;
+        padding: 0px;
+        font-size: 100%;
+        font-weight: bold;
+        text-align: center;
+        width: 100%;
+        height: 100%;
+}
+    
+.music {
+        float: left;
+        background: lightgrey;
+        display: inline-block;
+        width: 150px;
+        height: 250px;
+        margin: 5px;
+        padding: 0px;
+}
+.music img {
+        cursor: pointer;
+        width: 100%;
+        height: 150px;
+        margin: 0px;
+        padding: 0px;
+}
+.music p {
+        cursor: pointer;
+        display: inline-block;
+        width: 100%;
+        height: 100px;
+        margin: 0px;
+        padding: 5px;
+}
+    
+#SCresultados{
+        overflow: auto;
+        height: 100%;
+}

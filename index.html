@@ -1,182 +1,68 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
+                <meta charset="utf-8">
+                            
+                <!-- futile attempts to hide the address bar on the iPad -->
+                <meta name="apple-mobile-web-app-capable" content="yes" />
+                <meta name="apple-touch-fullscreen" content="yes" />
+                <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />         
+                <meta property="og:image" content="http://media40.wnyc.net/media/img/radiolab/header-logo.png"/>            
+                <!-- end of futility -->
                 
-    <!-- futile attempts to hide the address bar on the iPad -->
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-touch-fullscreen" content="yes" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />         
-    <meta property="og:image" content="http://media40.wnyc.net/media/img/radiolab/header-logo.png"/>            
-    <!-- end of futility -->
-    
-    <title>Musicfy</title>
-    <link type="text/css" href="css/style.css" rel="stylesheet" />   
-     
-    <script type="text/javascript" src="js/lib/jquery.min.js"></script> <!-- jQuery 1.5.1 -->
-    <script type="text/javascript" src="js/lib/jquery.jplayer.js"></script> <!-- jPlayer 2.0.9 -->
-    <script type="text/javascript" src="js/lib/jquery.scrollTo-min.js"></script>
-    
-    <script type="text/javascript" src="js/lib/mod.csstransitions.min.js"></script>
-    <script type="text/javascript" src="js/lib/jquery.spritely.js"></script>
-    <script type="text/javascript" src="js/boot.js"></script>  
-    
-    <style>
-    #loading {
-                background-color: rgb(225,225,225);
-                opacity: 0.5;
-                position: absolute;
-                top: 0px;
-                left: 0px;
-                width: 100%;
-                height: 100%;
-                padding: 0px;
-                margin: 0px;
-                font-family: 'Englebert', sans-serif;
-                font-size: 25px;
-                z-index:    50;
-    }
-    #loading p{
-                height: 100px;
-                position: relative;
-                top: 50%;
-                margin: 0px;
-                margin-top: -50px;
-                padding: 0px;
-                font-size: 100%;
-                font-weight: bold;
-                text-align: center;
-                width: 100%;
-                height: 100%;
-    }
-    
-    .music {
-                float: left;
-                background: lightgrey;
-                display: inline-block;
-                width: 150px;
-                height: 250px;
-                margin: 5px;
-                padding: 0px;
-    }
-    .music img {
-                cursor: pointer;
-                width: 100%;
-                height: 150px;
-                margin: 0px;
-                padding: 0px;
-    }
-    .music p {
-                cursor: pointer;
-                display: inline-block;
-                width: 100%;
-                height: 100px;
-                margin: 0px;
-                padding: 5px;
-    }
-    
-    #SoundCloudSearch{
-                    overflow: auto;
-                    height: 100%;
-    }
-    #musicEqualizer{
-        width: 100%;
-        height: 150px;
-        background: url('images/musicEqualizer.png') repeat-x;
-        background-size: 853px 150px;
-        position: absolute;
-        bottom: 0px;
-        z-index: 2;
-    }
-    
-    #controls{
-        background: url('images/metal.jpg') repeat;
-        box-shadow: 0px 2px 2px 2px grey;
-    }
-    #ricky{
-        cursor: help;
-        display: inline-block;
-        background: url('images/ricky.png');
-        width: 64px;
-        height: 64px;
-    }
-    #soundcloud{
-        width: 100%;
-        margin: 0px;
-        padding: 0px;
-    }
-    #main{
-        font-family: 'Berkshire Swash', cursive;
-        margin: 0 auto;
-        padding: 0px;
-        height: 150px;
-        width: 320px;
-    }
-    #logo{
-        height: 64px;
-    }
-    #musicfy{
-        width: 75%;
-        margin-top: 4px;
-        float: left;
-        height: 60px;
-        font-size: 45px;
-        text-align: center;
-    }
-    </style>
+                <title>Musicfy</title>
+                <link type="text/css" href="css/style.css" rel="stylesheet" />   
+                 
+                <script type="text/javascript" src="js/lib/jquery.min.js"></script> <!-- jQuery 1.5.1 -->
+                <script type="text/javascript" src="js/lib/jquery.jplayer.js"></script> <!-- jPlayer 2.0.9 -->
+                <script type="text/javascript" src="js/lib/jquery.scrollTo-min.js"></script>
+                
+                <script type="text/javascript" src="js/lib/mod.csstransitions.min.js"></script>
+                <script type="text/javascript" src="js/lib/jquery.spritely.js"></script>
+                <script type="text/javascript" src="js/boot.js"></script>  
 </head>
-<body>
-    <div id="musicEqualizer"></div>
-    
-    <ul id="simple-controls">
-        <li class="jp-play-hldr"><a href="#" class="jp-play" title="play"></a></li>
-        <li class="jp-pause-hldr"><a href="#" class="jp-pause" title="pause" style="display:none"></a></li>
-        <li class="jp-restart-hldr"><a href="#" class="jp-restart" title="restart"></a></li>
-    </ul>
 
-    <ul id="social-controls">
-       	<li class="twitter-hldr"><a href="http://twitter.com/share?url=http%3A%2F%2Fhyper-audio.org%2Fr%2F" target="_blank" class="twitter" title="tweet it"></a></li>  
-       	<li class="facebook-hldr"><a href="http://www.facebook.com/sharer.php?u=http://hyper-radio.org/r/&t=Radiolab Demo" target="_blank" class="facebook"></a></li>
-       	<li class="soundcloud-hldr"><a href="http://soundcloud.com/radiolab/hairpart" target="_blank" class="soundcloud" title="comment on soundcloud"></a></li>
-    </ul>
-    
-    <div id="controls">
-        <div id="main">
-            <div id="logo">
-                <div id="ricky"></div>
-                <div id="musicfy">Musicfy</div>
-            </div>
-            <input id="SCbusqueda" type="text" placeholder="Busca Una Musica" />
-        </div>
-        <div id="soundcloud">
-            <div id="waveform" class="progress-container">
-                <div class="waveform-container">
-                    <img id="waveform-img" />
-                </div>
-                <div class="jp-progress">
-                    <div class="jp-seek-bar">
-                        <div class="jp-play-bar"></div>
+<body>
+                
+                <div id="musicEqualizer"></div>
+                <div id="loading">
+                            <p>Cargando...</p>
+                 </div>
+                
+                <div id="controls">
+                    <div id="main">
+                        <div id="logo">
+                            <div id="ricky"></div>
+                            <div id="musicfy">Musicfy</div>
+                        </div>
+                        <div>
+                            <a href="#" class="jp-play" title="play">Play</a>
+                            <a href="#" class="jp-pause" title="pause" style="display:none">Pause</a>
+                            <a href="#" class="jp-restart" title="restart">Restart</a>
+                        </div>
+                        <input id="SCbusqueda" type="text" placeholder="Busca Una Musica" />
+                    </div>
+                    <div id="soundcloud">
+                        <div id="waveform" class="progress-container">
+                            <div class="waveform-container">
+                                <img id="waveform-img" />
+                            </div>
+                            <div class="jp-progress">
+                                <div class="jp-seek-bar">
+                                    <div class="jp-play-bar"></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-		<div id="loading">
-				<p>Cargando...</p>
-		</div>
-		<script src="http://connect.soundcloud.com/sdk.js"></script>
 		
-		
-        <div id="container">
-            
-                
-	    
-            <div id="jquery_jplayer_1"></div>
-		
-		
-	    <div id="images">
-	    	<div id="SoundCloudSearch"></div>
-	    </div>
-        </div>
+                <script src="http://connect.soundcloud.com/sdk.js"></script>
+                                
+                                
+                <div id="container">
+                                <div id="jquery_jplayer_1"></div>
+
+                                <div id="SCresultados"></div>
+                </div>
 </body>
 </html>
