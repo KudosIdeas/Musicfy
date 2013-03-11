@@ -2,15 +2,16 @@
 <html>
 <head>
     <meta charset="utf-8">
+                
     <!-- futile attempts to hide the address bar on the iPad -->
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-touch-fullscreen" content="yes" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />         
     <meta property="og:image" content="http://media40.wnyc.net/media/img/radiolab/header-logo.png"/>            
-    
     <!-- end of futility -->
+    
     <title>Musicfy</title>
-    <link type="text/css" href="css/audio.css" rel="stylesheet" />   
+    <link type="text/css" href="css/style.css" rel="stylesheet" />   
      
     <script type="text/javascript" src="js/lib/jquery.min.js"></script> <!-- jQuery 1.5.1 -->
     <script type="text/javascript" src="js/lib/jquery.jplayer.js"></script> <!-- jPlayer 2.0.9 -->
@@ -18,66 +19,60 @@
     
     <script type="text/javascript" src="js/lib/mod.csstransitions.min.js"></script>
     <script type="text/javascript" src="js/lib/jquery.spritely.js"></script>
-    <script type="text/javascript" src="js/audio.js"></script>  
+    <script type="text/javascript" src="js/boot.js"></script>  
     
     <style>
-                    @import url(http://fonts.googleapis.com/css?family=Englebert);
-                    /* Start by setting display:none to make this hidden.
-       Then we position it in relation to the viewport window
-       with position:fixed. Width, height, top and left speak
-       speak for themselves. Background we set to 80% white with
-       our animation centered, and no-repeating */
     #loading {
-                    background-color: rgb(225,225,225);
-                    opacity: 0.5;
-                    position: absolute;
-                    top: 0px;
-                    left: 0px;
-                    width: 100%;
-                    height: 100%;
-                    padding: 0px;
-                    margin: 0px;
-                    font-family: 'Englebert', sans-serif;
-                    font-size: 25px;
-                    z-index:    50;
+                background-color: rgb(225,225,225);
+                opacity: 0.5;
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                width: 100%;
+                height: 100%;
+                padding: 0px;
+                margin: 0px;
+                font-family: 'Englebert', sans-serif;
+                font-size: 25px;
+                z-index:    50;
     }
     #loading p{
-                    height: 100px;
-                    position: relative;
-                    top: 50%;
-                    margin: 0px;
-                    margin-top: -50px;
-                    padding: 0px;
-                    font-size: 100%;
-                    font-weight: bold;
-                    text-align: center;
-                    width: 100%;
-                    height: 100%;
+                height: 100px;
+                position: relative;
+                top: 50%;
+                margin: 0px;
+                margin-top: -50px;
+                padding: 0px;
+                font-size: 100%;
+                font-weight: bold;
+                text-align: center;
+                width: 100%;
+                height: 100%;
     }
     
     .music {
-        float: left;
-                    background: lightgrey;
-                    display: inline-block;
-                    width: 150px;
-                    height: 250px;
-                    margin: 5px;
-                    padding: 0px;
+                float: left;
+                background: lightgrey;
+                display: inline-block;
+                width: 150px;
+                height: 250px;
+                margin: 5px;
+                padding: 0px;
     }
     .music img {
-                    cursor: pointer;
-                    width: 100%;
-                    height: 150px;
-                    margin: 0px;
-                    padding: 0px;
+                cursor: pointer;
+                width: 100%;
+                height: 150px;
+                margin: 0px;
+                padding: 0px;
     }
     .music p {
-                    cursor: pointer;
-                    display: inline-block;
-                    width: 100%;
-                    height: 100px;
-                    margin: 0px;
-                    padding: 5px;
+                cursor: pointer;
+                display: inline-block;
+                width: 100%;
+                height: 100px;
+                margin: 0px;
+                padding: 5px;
     }
     
     #SoundCloudSearch{
@@ -104,11 +99,6 @@
         background: url('images/ricky.png');
         width: 64px;
         height: 64px;
-    }
-    #SCsearch{
-        width: 100%;
-        display: inline-block;
-        font-size: 32px;
     }
     #soundcloud{
         width: 100%;
@@ -156,7 +146,7 @@
                 <div id="ricky"></div>
                 <div id="musicfy">Musicfy</div>
             </div>
-            <input id="SCsearch" type="text" placeholder="Busca Una Musica" />
+            <input id="SCbusqueda" type="text" placeholder="Busca Una Musica" />
         </div>
         <div id="soundcloud">
             <div id="waveform" class="progress-container">

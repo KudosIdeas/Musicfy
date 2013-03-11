@@ -1,13 +1,3 @@
-/*   
- * Licensed under the MIT license.
- *  - http://www.opensource.org/licenses/mit-license.php
- *
- * Authors:      
- * Mark Boas @maboa
- * Mark Panaghiston @thepag 
- * Steven Weerdenburg
- */
-
 $(document).ready(function(){
 	
 	// Pan Background
