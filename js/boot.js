@@ -121,7 +121,7 @@ $(document).ready(function(){
 	
 	//Input Search
 	
-	$('#SCsearch').keyup(function () { $('#SCsearch').val().length > 3? SCsearch( $('#SCsearch').val() ) : SCsearch( "" ); });
+	$('#SCbusqueda').keyup(function () { $('#SCbusqueda').val().length > 3? SCsearch( $('#SCbusqueda').val() ) : SCsearch( "" ); });
 
 });
 
@@ -141,9 +141,15 @@ $(document).ready(function(){
 		      $('#SCresultados').html("");
 		      
 		      $.each(obj, function(i, item) {
-			      $('#SCresultados').html( $('#SCresultados').html() + "<div class='music' onclick='SoundCloudReload("+obj[i].id+");' style:'cursor:pointer;'><img src='"+ obj[i].artwork_url +"' /><b>Nombre:</b>" + obj[i].title + "Descarga: <a href='" + obj[i].permalink_url +"' target='_blank'>Descarga</a></div>");
-			      $(".track-"+obj[i].id).click({id: obj[i].id},SoundCloudReload);
-			      //alert(data[i].PageName);
+				var imgSrc = "images/no-cover.jpg";
+				if (obj[i].artwork_url != null)
+					imgSrc = obj[i].artwork_url;
+				
+				var contenido = "";
+				contenido += "<b>Nombre: </b>" + obj[i].title;
+				$('#SCresultados').html( $('#SCresultados').html() + "<div class='music' onclick='SoundCloudReload("+obj[i].id+");'><img src='"+ imgSrc +"' /><div class='contenido'>"+contenido+"</div>" );
+				$(".track-"+obj[i].id).click({id: obj[i].id},SoundCloudReload);
+				//alert(data[i].PageName);
 		      });
 		});
 	}
