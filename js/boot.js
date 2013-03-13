@@ -1,3 +1,5 @@
+var arrow = 'R';
+
 $(document).ready(function(){
 	// Ricky
 	$("#ricky").click(function(){
@@ -5,20 +7,28 @@ $(document).ready(function(){
 			$("#contenidoDialogo").fadeIn(1500);
 	});
 	$("#dialogo").click(function(){
-		$("#dialogo").fadeOut(1500);
-		$("#contenidoDialogo").fadeOut(1500);
+		$("#dialogo").fadeOut(1000);
+		$("#contenidoDialogo").fadeOut(1000);
 	});
 	
 	// Pan Background
-	$("#musicEqualizer").pan({fps:24, speed:5, direction:"right"});
+	$("#musicEqualizer").pan({fps:24, speed:3, direction:"right"});
 	$("#ricky").sprite({fps:4, no_of_frames:4});
+	
 	$("#loading").hide();
 	
 	$('#icono').click(function() {
 		$('#panelContenido').animate({width: 'toggle'});
+		if ( arrow == 'R'){
+			// Icono Izquierda
+			arrow = 'L';
+		}else {
+			// Icono Derecha
+			arrow = 'R';
+		}
 	});
 	
-	// super commenter - to be used to decide what to do with comment
+	// configuracion de la cuenta de Soundcloud
 	
 	var admin = "Kudos Ideas";  
 	var mediaId = "71212117";//14567535 //71212117 //64441170
@@ -31,7 +41,6 @@ $(document).ready(function(){
 	var audioTagSupport = !!(document.createElement('audio').canPlayType);    
 	
 	if (audioTagSupport == false ) {
-		$('#commentOutput').text('Unfortunatley your browser does not support audio natively and so this demo will not run. Upgrade to the latest version of your browser for the best experience.'); 
 		$('#destructions').text('Houston we have a problem!');
 	} else if (cssTransitionsSupport ==  false) {
 		$('#commentOutput').text('This demo features effects that rely on CSS3 transitions, which your browser does not support. Upgrade to the latest version of your browser for the best experience.');
@@ -44,7 +53,7 @@ $(document).ready(function(){
 		setTimeout(updateLayout, 0);
 	}, false);   
 	
-    function updateLayout(){
+	function updateLayout(){
 		if (navigator.userAgent.indexOf('iPhone') != -1 || navigator.userAgent.indexOf('iPod') != -1 || navigator.userAgent.indexOf('iPad') != -1) 
 		{
 			//setTimeout("window.scrollTo(0, 14)", 0);	
@@ -55,13 +64,8 @@ $(document).ready(function(){
 	}
 
 	
-	// load transcript - @maboa 
-	// and wait until it is in place before doing anything
-	$(document).ready(
-		function(){
-			setup();
-		}
-	);   
+	
+	setup();
 
 	var client_id = '?client_id='+apiKey;                  
 	var myPlayer = $("#jquery_jplayer_1");  

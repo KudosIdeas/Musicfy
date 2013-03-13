@@ -187,44 +187,51 @@ input[type="text"]:focus {
 }
 
 #panel{
-        height: 350px;
-        background: black;
+	position: relative;
+	left: 0px;
+	top: 50%;
+	margin-top: -125px;
+        height: 250px;
+	width: 125px;
 }
 
 #panelContenido{
         float: left;
         margin: 0px;
         padding: 0px;
-        width: 250px;
-        height: 350px;
-        background: red;
+        width: 100px;
+        height: 250px;
+	box-shadow: 5px 5px 5px grey;
 }
 
 #icono{
         float: left;
-        width: 50px;
-        height: 50px;
+        width: 25px;
+        height: 25px;
         background: url("../images/arrowR.png");
-        margin-top: 150px;
+        margin-top: 113px;
         cursor: pointer;
 }
 
 .link{
         display: block;
-        width: 200px;
-        height: 200px;
+        width: 50px;
+        height: 50px;
         margin: 5px;
 }
 
 .link:hover{
         transition: all 0.5s;
+	-webkit-transition: all 0.5s;
+	border: solid 2px white;
+	box-shadow: 5px 5px 4px white;
         cursor: pointer;
-        transform: rotate(5deg);
+        transform: rotate(15deg);
+	-webkit-transform: rotate(15deg);
 }
 
 #contenedorLinks{
-        height: 350px;
-        width: 250px;
+        height: 250px;
         overflow: scroll;
         overflow-y:scroll;
         overflow-x:hidden;
