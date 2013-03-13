@@ -185,7 +185,8 @@ input[type="text"]:focus {
 	overflow-x:hidden;
 	border-radius: 10px;
 }
- #panel{
+
+#panel{
         height: 350px;
         background: black;
 }
@@ -206,4 +207,25 @@ input[type="text"]:focus {
         background: url("../images/arrowR.png");
         margin-top: 150px;
         cursor: pointer;
+}
+
+.link{
+        display: block;
+        width: 200px;
+        height: 200px;
+        margin: 5px;
+}
+
+.link:hover{
+        transition: all 0.5s;
+        cursor: pointer;
+        transform: rotate(5deg);
+}
+
+#contenedorLinks{
+        height: 350px;
+        width: 250px;
+        overflow: scroll;
+        overflow-y:scroll;
+        overflow-x:hidden;
 }
