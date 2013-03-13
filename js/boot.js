@@ -14,6 +14,10 @@ $(document).ready(function(){
 	$("#ricky").sprite({fps:4, no_of_frames:4});
 	$("#loading").hide();
 	
+	$('#icono').click(function() {
+		$('#panelContenido').animate({width: 'toggle'});
+	});
+	
 	// super commenter - to be used to decide what to do with comment
 	
 	var admin = "Kudos Ideas";  
