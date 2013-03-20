@@ -6,6 +6,10 @@ $(document).ready(function(){
 			$("#dialogo").fadeIn(1000);
 			$("#contenidoDialogo").fadeIn(1500);
 	});
+	//click
+		$("#click").click(function(){
+			$("#click").fadeOut(1000);
+	});	
 	$("#dialogo").click(function(){
 		$("#dialogo").fadeOut(1000);
 		$("#contenidoDialogo").fadeOut(1000);

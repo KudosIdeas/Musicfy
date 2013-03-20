@@ -246,3 +246,14 @@ input[type="text"]:focus {
         overflow-y:scroll;
         overflow-x:hidden;
 }
+
+#click{
+	cursor: pointer;
+	background: url("../images/click.png");
+	width: 128px;
+	height: 64px;
+	top: 2%;
+	right: 30%;
+	position: absolute;
+	opacity: 0.8;
+}
