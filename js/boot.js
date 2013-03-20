@@ -53,7 +53,7 @@ $(document).ready(function(){
 		setTimeout(updateLayout, 0);
 	}, false);   
 	
-	function updateLayout(){
+    function updateLayout(){
 		if (navigator.userAgent.indexOf('iPhone') != -1 || navigator.userAgent.indexOf('iPod') != -1 || navigator.userAgent.indexOf('iPad') != -1) 
 		{
 			//setTimeout("window.scrollTo(0, 14)", 0);	
@@ -65,7 +65,11 @@ $(document).ready(function(){
 
 	
 	
-	setup();
+	$(document).ready(
+		function(){
+			setup();
+		}
+	);   
 
 	var client_id = '?client_id='+apiKey;                  
 	var myPlayer = $("#jquery_jplayer_1");  
