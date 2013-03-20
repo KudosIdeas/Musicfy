@@ -65,6 +65,14 @@ input[type="text"]:focus {
 	cursor: pointer;
 }
 
+.music:hover{
+        box-shadow: 5px 5px 5px black;
+        -moz-transform: rotate(5deg) scale(1.05);
+        -webkit-transform: rotate(5deg) scale(1.05);
+        -webkit-transition: all 0.5s;
+        -moz-transition: all 0.5s;
+	
+}
 .music {
 	cursor: pointer;
         background: lightgrey;
@@ -74,6 +82,8 @@ input[type="text"]:focus {
         margin: 5px;
         padding: 5px;
 	overflow: hidden;
+	-webkit-transition: all 0.5s;
+        -moz-transition: all 0.5s;
 }
 .music img {
         cursor: pointer;
