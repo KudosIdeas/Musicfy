@@ -1,4 +1,4 @@
-var arrow = 'R';
+var arrow = 'L';
 
 $(document).ready(function(){
 	// Ricky
@@ -7,14 +7,16 @@ $(document).ready(function(){
 			$("#contenidoDialogo").fadeIn(1500);
 	});
 	//click
-		$("#click").click(function(){
+	$("#click").click(function(){
 			$("#click").fadeOut(1000);
 	});	
 	$("#dialogo").click(function(){
 		$("#dialogo").fadeOut(1000);
 		$("#contenidoDialogo").fadeOut(1000);
 	});
-	
+	$("#nowPlaying").click(function(){
+			$("#nowPlaying").fadeOut(1000);
+	});
 	// Pan Background
 	$("#musicEqualizer").pan({fps:24, speed:3, direction:"right"});
 	$("#ricky").sprite({fps:4, no_of_frames:4});
@@ -24,10 +26,10 @@ $(document).ready(function(){
 	$('#icono').click(function() {
 		$('#panelContenido').animate({width: 'toggle'});
 		if ( arrow == 'R'){
-			// Icono Izquierda
+			$('#icono').css("background-image", "url(images/arrowL.png)"); 
 			arrow = 'L';
 		}else {
-			// Icono Derecha
+			$('#icono').css("background-image", "url(images/arrowR.png)"); 
 			arrow = 'R';
 		}
 	});
@@ -116,7 +118,7 @@ $(document).ready(function(){
 		});
 		
 		
-		SCsearch('Good Time For Psy Saxobeat Style');
+		SCsearch('diego landa');
 	   
 	} 
 
@@ -163,13 +165,24 @@ $(document).ready(function(){
 				
 				var contenido = "";
 				contenido += "<b>Nombre: </b>" + obj[i].title;
-				$('#SCresultados').html( $('#SCresultados').html() + "<div class='music' onclick='SoundCloudReload("+obj[i].id+");'><img src='"+ imgSrc +"' /><div class='contenido'>"+contenido+"</div>" );
-				$(".track-"+obj[i].id).click({id: obj[i].id},SoundCloudReload);
+				contenido += "<br/><a href='#"+obj[i].user.username+"' onclick='setTag("+obj[i].id+")'>Mostrar Info</a>";
+				$('#SCresultados').html( $('#SCresultados').html() + "<div class='music' id='sc-"+obj[i].id+
+							"' sc-artista='"+obj[i].user.username+"' sc-titulo='"+obj[i].title+"' sc-link='"+obj[i].permalink_url+"'>"+
+							"<img src='"+ imgSrc +"' onclick='SoundCloudReload("+obj[i].id+");'/><div class='contenido' style='cursor:auto;'>"+contenido+"</div>" );
+				//$(".track-"+obj[i].id).click({id: obj[i].id},SoundCloudReload);
 				//alert(data[i].PageName);
 		      });
 		});
 	}
 
+	function setTag(id){
+		$('#nowPlaying').fadeOut(1);
+		artist = $('#sc-'+id).attr('sc-artista');
+		link = $('#sc-'+id).attr('sc-link');
+		song = $('#sc-'+id).attr('sc-titulo');
+		$('#nowPlaying').html("Artista: "+artist+"<br/><a href='"+link+"' target='_blank'>"+song+"</a>");
+		$('#nowPlaying').fadeIn(1000);
+	}
 // Change Music
 	function SoundCloudReload( id ){
 		
@@ -196,9 +209,6 @@ $(document).ready(function(){
 						$(this).jPlayer("setMedia", {
 							mp3: "http://api.soundcloud.com/tracks/"+mediaId+"/stream?client_id="+apiKey,
 							oga: "http://api.soundcloud.com/tracks/"+mediaId+"/download?client_id="+apiKey,
-
-							//mp3: data.stream_url + client_id,
-							//oga: data.download_url + client_id
 						});
 						
 						if(event.jPlayer.html.used && event.jPlayer.html.audio.available) {
@@ -217,7 +227,7 @@ $(document).ready(function(){
 					},
 					preload: "none"
 				});
-					
+					setTag(mediaId);
 					$("#loading").hide();
 					
 					$("#waveform-img").attr("src", data.waveform_url);
