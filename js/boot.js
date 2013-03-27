@@ -37,7 +37,7 @@ $(document).ready(function(){
 	// configuracion de la cuenta de Soundcloud
 	
 	var admin = "Kudos Ideas";  
-	var mediaId = "71212117";//14567535 //71212117 //64441170
+	var mediaId = "85095617";//14567535 //71212117 //64441170
 	var apiKey = "297aeedf702a22bba252d2b6a091960d";
 	var duration = 1016; // change this later for flexibility - the issue is that we don't know the duration until the track has completely loaded            
 	
@@ -84,6 +84,8 @@ $(document).ready(function(){
 	
 	function setup() { 
 
+		SCsearch('diego landa');
+		
 		$.ajax({
 			url: "http://api.soundcloud.com/tracks/"+mediaId+".json" + client_id,
 			dataType: 'jsonp',
@@ -99,6 +101,7 @@ $(document).ready(function(){
 						if(event.jPlayer.html.used && event.jPlayer.html.audio.available) {
 						       myPlayer.jPlayer("play");
 						}
+						
 					},
 					swfPath: "js/libs", // Not important for HTML only solution.
 					// solution: "html",
@@ -116,10 +119,6 @@ $(document).ready(function(){
 				$("#waveform-img").attr("src", data.waveform_url);
 			}
 		});
-		
-		
-		SCsearch('diego landa');
-	   
 	} 
 
 	// transcript links to audio
@@ -172,6 +171,7 @@ $(document).ready(function(){
 				//$(".track-"+obj[i].id).click({id: obj[i].id},SoundCloudReload);
 				//alert(data[i].PageName);
 		      });
+
 		});
 	}
 
